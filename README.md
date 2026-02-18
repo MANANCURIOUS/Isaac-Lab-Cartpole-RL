@@ -110,8 +110,6 @@ https://github.com/user-attachments/assets/22939543-9048-4724-b2f6-4b776c062386
 
 # Tensor Board Graph
 
-The graphs below compares the episode mean and 
-
 <img width="1158" height="570" alt="Screenshot 2026-02-18 193345" src="https://github.com/user-attachments/assets/7137c2f0-21b3-4282-9715-531dc9723fe6" />
 <img width="1155" height="580" alt="Screenshot 2026-02-18 193400" src="https://github.com/user-attachments/assets/e8080d1f-ee1c-4914-bdb2-fe5b2ea90671" />
 <img width="1151" height="555" alt="Screenshot 2026-02-18 193415" src="https://github.com/user-attachments/assets/a4ac27cd-7f4a-42ac-9ef7-c2f80905b1d0" />
