@@ -101,20 +101,82 @@ Testing Trained Model
 ```
 .\isaaclab.bat -p scripts\reinforcement_learning\sb3\play.py --task Isaac-Cartpole-v0 --use_last_checkpoint
 ```
+# VIDEO RESULTS
 
 
 
 
+https://github.com/user-attachments/assets/22939543-9048-4724-b2f6-4b776c062386
 
+# Tensor Board Graph
 
+The graphs below compares the episode mean and 
 
+<img width="1158" height="570" alt="Screenshot 2026-02-18 193345" src="https://github.com/user-attachments/assets/7137c2f0-21b3-4282-9715-531dc9723fe6" />
+<img width="1155" height="580" alt="Screenshot 2026-02-18 193400" src="https://github.com/user-attachments/assets/e8080d1f-ee1c-4914-bdb2-fe5b2ea90671" />
+<img width="1151" height="555" alt="Screenshot 2026-02-18 193415" src="https://github.com/user-attachments/assets/a4ac27cd-7f4a-42ac-9ef7-c2f80905b1d0" />
 
+# Training with SKRL PPO
 
+## Baseline Training
+```
+.\isaaclab.bat -p scripts\reinforcement_learning\skrl\train.py --task Isaac-Cartpole-v0
+```
 
+### Model Architecture 
+Policy Network
+```
+layers: [32, 32]
+activations: elu
+initial_log_std: 0.0
+clip_log_std: True
+min_log_std: -20
+max_log_std: 2
 
+```
+Value Network
+```
+layers: [32, 32]
+activations: elu
+```
+So baseline architecture was:
 
+- 2 hidden layers
+- 32 neurons each
+- ELU activation
 
+### PPO Core Hyperparameters
+```
+rollouts: 32
+learning_epochs: 8
+mini_batches: 8
+discount_factor: 0.99
+lambda: 0.95
+learning_rate: 5e-4
+ratio_clip: 0.2
+value_clip: 0.2
+entropy_loss_scale: 0.0
+value_loss_scale: 2.0
+grad_norm_clip: 1.0
 
+```
+Training Duration was set for timesteps 4800
+
+## Tuned SKRL Training 
+```
+.\isaaclab.bat -p scripts\reinforcement_learning\skrl\train.py --task Isaac-Cartpole-v0 ^
+agent.agent.rollouts=64 ^
+agent.agent.learning_epochs=10 ^
+agent.agent.learning_rate=3e-4 ^
+agent.agent.entropy_loss_scale=0.01 ^
+agent.trainer.timesteps=300000
+
+```
+
+# Result Comparision
+<img width="1154" height="583" alt="Screenshot 2026-02-19 011557" src="https://github.com/user-attachments/assets/01bd1e72-e9fa-4d22-9ca8-b02c44af02e5" />
+<img width="1158" height="574" alt="image" src="https://github.com/user-attachments/assets/6b8e0b1f-e418-49ee-bb4f-ff27a7ae6b5c" />
+<img width="1152" height="547" alt="Screenshot 2026-02-19 011633" src="https://github.com/user-attachments/assets/a4180d7e-2e78-4f07-aa2b-a21e8a486899" />
 
 
 
