@@ -2,6 +2,9 @@
 This project implements and compares Proximal Policy Optimization (PPO) using SB3 and SKRL on Isaac Lab environment 
 The objective is to train an RL policy to balance an inverted pendulum on a cart under randomized initial conditions later we have also tried these algorithms for double inverted pendulum.
 
+## NOTE 
+The scripts used were mostly kept the same as received from IsaacSim and Isaac Lab installation. Two of the most prominent RL models are observed. The hyperparameter tuning was done at the cmd such that the viewer can easily run with coherency in the script.
+
 We:
 - Trained PPO using SB3
 - Trained PPO using SKRL
@@ -171,7 +174,14 @@ agent.trainer.timesteps=300000
 
 ```
 
-# Result Comparision
+## Video Of Best Model
+
+
+
+https://github.com/user-attachments/assets/9f2cae86-d48b-42b4-9c00-12269b5efcb3
+
+
+## Result Comparision
 <img width="1154" height="583" alt="Screenshot 2026-02-19 011557" src="https://github.com/user-attachments/assets/01bd1e72-e9fa-4d22-9ca8-b02c44af02e5" />
 <img width="1158" height="574" alt="image" src="https://github.com/user-attachments/assets/6b8e0b1f-e418-49ee-bb4f-ff27a7ae6b5c" />
 <img width="1152" height="547" alt="Screenshot 2026-02-19 011633" src="https://github.com/user-attachments/assets/a4180d7e-2e78-4f07-aa2b-a21e8a486899" />
