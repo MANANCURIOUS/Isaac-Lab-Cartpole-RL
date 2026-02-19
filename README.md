@@ -261,7 +261,67 @@ After tuning:
 - Higher episode length mean
 - More stable training curve
 - Better coordination between cart and pendulum
+### Video Results
+### Graph Results
+## Using MPPO Algorithm (Multi-Agent PPO)
+MAPPO is an extension of PPO for multi-agent systems, where:
 
+Each agent has its own observation
 
+Policies are learned jointly
 
+Agents cooperate to maximize shared reward
 
+Training Command
+
+python scripts\reinforcement_learning\skrl\train.py ^
+--task Isaac-Cart-Double-Pendulum-Direct-v0 ^
+--algorithm MAPPO ^
+--num_envs 64
+
+Play / Evaluate Trained Model
+
+python scripts\reinforcement_learning\skrl\play.py ^
+--task Isaac-Cart-Double-Pendulum-Direct-v0 ^
+--algorithm MAPPO ^
+--num_envs 1
+
+### Video Result
+
+Baseline Hyperparameters
+
+agent:
+  rollouts: 16
+  learning_epochs: 8
+  mini_batches: 1
+  learning_rate: 3e-4
+  discount_factor: 0.99
+  lambda: 0.95
+  ratio_clip: 0.2
+  value_clip: 0.2
+  entropy_loss_scale: 0.0
+
+Improvements Applied
+
+To improve stability and learning:
+
+rollouts: 128
+learning_epochs: 10
+mini_batches: 8
+learning_rate: 5e-4
+network layers: [32, 32]
+entropy_loss_scale: 0.02
+
+Observed Improvements:
+
+Faster convergence
+
+Reduced oscillations
+
+More stable double-pole balancing
+
+Better cooperative behavior between agent
+
+# Video Result
+
+# Graph Result
